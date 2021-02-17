@@ -6,7 +6,8 @@ let childList = Object.values(childObj)
 let arr=[]
 childList.map((data,i)=>{
     let resultObj = new Object();
-    resultObj.num=(Number(data.childNodes[1].getElementsByTagName('a').item(0).getElementsByTagName('img').item(0).src.split('/')[4].replace('.svg','')))
+    //resultObj.num=(Number(data.childNodes[1].getElementsByTagName('a').item(0).getElementsByTagName('img').item(0).src.split('/')[4].replace('.svg','')))
+    resultObj.num=(Number(data.childNodes[1].getElementsByTagName('a').item(0).getElementsByTagName('span').item(0).innerText))
     resultObj.title=(data.childNodes[1].getElementsByTagName('a').item(0).innerText)
     arr.push(resultObj)
 
@@ -19,9 +20,12 @@ for(let i=0; i<arr.length; i++){
             sortArr.push(arr[j])
         }
     }
-    
 }
 
+let str='';
+
 sortArr.map((list,k)=>{
-    console.log(k+1+"번 "+list.title)
+    str+=k+1+"번 "+list.title+'\n';
 })
+
+console.log(str)
